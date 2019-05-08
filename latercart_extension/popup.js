@@ -88,7 +88,7 @@ setTimeout(() => {
         }, 1500);
       }
 
-    
+
       axios({
         method: 'get',
         url: 'http://localhost:3000/api/wishlists',
@@ -99,7 +99,7 @@ setTimeout(() => {
           $("#firstPage").css("display", "none")
           $("#lists").append("<ul>Add to List(s)<br><br>")
           response.data.forEach((list) =>
-            $("ul").append(`<li><input id="${list.id}" type="checkbox"> ${list.name}</li>`)
+            $("#secondPage ul").append(`<li><input id="${list.id}" type="checkbox" name="${list.name}"> ${list.name}</li>`)
           )
           $('#lists').append('</ul>')
           $("#secondPage").css("display", "block")
@@ -154,6 +154,7 @@ setTimeout(() => {
             let listNames = []
             for (list of $("input[type='checkbox']:checked")) {
               listIds.push(list.id)
+              console.log(list)
               listNames.push(list.name)
             }
             let rating = $(".heart[src$='/images/fullHeart.png']").length
@@ -184,12 +185,21 @@ setTimeout(() => {
                 price_tag: price_selector_db,
                 img_tag: img_selector_db
               })
-                .then(function (response) {
-                  console.log(response.data);
-                })
-                .catch(function (error) {
-                  console.log(error);
-                });
+              .catch(function (error) {
+                console.log(error);
+              });
+
+            $("#secondPage").css("display", "none")
+            $("#thirdPage").css("display", "block")
+            console.log(listNames)
+            $("#addedProduct").html(`<span>${popProduct.name}</span> has been added to the following list(s):`)
+            listNames.forEach((list)=>{
+              console.log(list)
+              $("#addedLists").append(`<li>${list}</li>`)
+              console.log("butts")
+            })
+
+              
           })
         })
         .catch(error => {

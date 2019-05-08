@@ -148,3 +148,17 @@ textarea {
 #loading {
   max-width: 200px
 }
+
+#addedProduct {
+  font-size: 20px
+}
+
+#addedProduct span{
+  color: #653c53;
+}
+
+#addedLists li{
+  font-size: 20px;
+  text-align: center;
+  color: gray;
+}
