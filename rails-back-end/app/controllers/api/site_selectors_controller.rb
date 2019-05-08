@@ -4,11 +4,19 @@ class Api::SiteSelectorsController < ApplicationController
     render json: @site_selector
   end
 
-  # def new
-  #   @product = Product.new
-  # end
+  def new
+    @site_selector = SiteSelector.new
+  end
 
-  # def create
+  def create
+    @site_selector = SiteSelector.new(site_selector_params)
+
+    if @site_selector.save
+      puts "product saved"
+    else
+      puts "product not saved"
+    end
+  end
   
   def site_selector_params
     params.require(:site_selector).permit(

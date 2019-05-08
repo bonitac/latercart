@@ -99,16 +99,9 @@ Product.create!({
 
 SiteSelector.create!({
   site_name: "https://www.ikea.com",
-  title_tag: "$('#name').html()",
-  price_tag: "$('#price1').html()",
-  img_tag: "$('#productImg').prop('src')"
-})
-
-SiteSelector.create!({
-  site_name: "https://www.ikea.com",
-  title_tag: "$('#name').html()",
-  price_tag: "$('#price1').html()",
-  img_tag: "$('#productImg').prop('src')"
+  title_tag: "document.getElementsByTagName('title')[0].innerHTML",
+  price_tag: "document.getElementsByClassName('product-pip__price__value')[0].innerHTML",
+  img_tag: "document.querySelector('#pip-carousel > div > div > div:nth-child(1) > img').src"
 })
 
 SiteSelector.create!({

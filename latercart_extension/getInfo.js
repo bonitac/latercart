@@ -16,6 +16,7 @@ axios.get('http://localhost:3000/api/site_selectors',
     var prodprice = $('.price').html() ? $('.price').html() 
                  : "not found"
     var prodimg = "not found"
+    var produrl = document.location.href
     }
 
     const product = { name: prodname, price: prodprice, img: prodimg, url: produrl};

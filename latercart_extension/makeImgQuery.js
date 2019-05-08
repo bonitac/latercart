@@ -1,5 +1,9 @@
 //code to create 
-chrome.storage.sync.get(['price_input'], function ({ price_input }) {
+chrome.storage.sync.get(['img_input'], function ({ img_input }) {
+
+  // chrome.storage.sync.remove(img_selector, function(Items) {
+  //   alert("removed img_selector");
+  // })
 
   (function () {
     var CssSelectorGenerator, root,
@@ -351,15 +355,20 @@ chrome.storage.sync.get(['price_input'], function ({ price_input }) {
 
   }).call(this);
 
-  let length = $(`:contains(${price_input}):not(:has(:contains(${price_input})))`).length
-  console.log(length)
-  let htmlElement = $(`:contains(${price_input}):not(:has(:contains(${price_input})))`)[0];
+  img_input = img_input.split("/")
+  img_input = img_input[img_input.length - 1]
+
+  console.log(img_input)
+
+  // let htmlElement = $(`:contains(${img_input}):not(:has(:contains(${img_input})))`)[index];
+  let htmlElement = $(`img[src*="${img_input}"]`)[0];
   
-  selector_generator = new CssSelectorGenerator;
+  let selector_generator = new CssSelectorGenerator;
 
-  element_selector = selector_generator.getSelector(htmlElement);
-  console.log(element_selector)
-  chrome.storage.sync.set({ price_selector: element_selector }, () =>
-    console.log("element_selector set"))
-
+  setTimeout(function () {
+    let element_selector = selector_generator.getSelector(htmlElement);
+    console.log(element_selector)
+    chrome.storage.sync.set({ img_selector: element_selector }, () =>
+      console.log("element_selector set"))  
+  }, 1000)
 })
