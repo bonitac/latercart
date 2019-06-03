@@ -11,5 +11,9 @@
     "persistent": false
   },
   "page_action": {"default_popup": "popup.html"},
-  "content_security_policy": "script-src 'self' https://unpkg.com/axios/dist/axios.min.js https://code.jquery.com/jquery-3.4.0.js; object-src 'self'"
+  "content_security_policy": "script-src 'self' https://unpkg.com/axios/dist/axios.min.js https://code.jquery.com/jquery-3.4.0.js; object-src 'self'",
+
+  "externally_connectable": {
+    "matches": ["http://localhost:3000/"]
+  }
 }

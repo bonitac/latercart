@@ -7,3 +7,13 @@ chrome.declarativeContent.onPageChanged.removeRules(undefined, function() {
          actions: [new chrome.declarativeContent.ShowPageAction()]
    }]);
  });
+
+chrome.runtime.onMessageExternal.addListener(
+  function(request, sender, sendResponse) {
+    if (request.token) {
+      console.log(request.token);
+      localStorage.setItem("jwt",request.token);
+    }
+});
+
+  

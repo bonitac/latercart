@@ -25,7 +25,7 @@ In one terminal, `cd` into `react-front-end`. Run `npm install`. Then run `npm s
 
 In the other terminal, `cd` into `rails-back-end`. Run `bundle` to install the dependencies. Run `bin/rake db:setup` to create the databases (called rails_project_development by default). Run `bin/rails s` to run the server.
 
-Open up chrome:/More Tools/extensions/ in your browser and click “Developer mode” in the top right. Now click “Load unpacked” and select "latercart_extension". You should now see your extension in the list. 
+Open up chrome:/More Tools/extensions/ in your browser and click “Developer mode” in the top right. Now click “Load unpacked” and select "latercart_extension". You should now see your extension with an ID in the list. Replace the ID of `editorExtensionId` with the current extension ID on line 32 of react-front-end/public/src/LoginForm.js.
 
 Go to http://localhost:3000/ to view latercart website. To add product, go to any ecommerce website and click on the chrome extension in the top right on a product page, and select wishlist(s) to add to. 
 
